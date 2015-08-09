@@ -138,16 +138,12 @@ public class SketchFinder {
 //		}
         
 		if (showLibraries) {
-			for (int i = 0; i < 70; i++) {
-				System.out.print("-");
-			}
-			System.out.println();
-			
-			System.out.println("Libraries:");
 			getLibraries(folder);
-	        System.out.print(libraries);
+		  for (int i = 0; i < 70; i++) {
+					System.out.print("-");
+			}
+			System.out.println("\nLibraries:\n" + libraries);
 		}
-		
 	}
 
 	/**
