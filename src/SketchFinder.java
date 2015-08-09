@@ -8,7 +8,6 @@
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 public class SketchFinder {
@@ -24,6 +23,7 @@ public class SketchFinder {
 	static boolean showLibraryFiles = true;
 	static boolean showHiddenFiles = false;
 	static boolean showUnderscoreFiles = false;
+	static boolean showLibraries = false;
 
 	// Tracks whether the program is looking through the library. If so, handles
 	// files differently.
@@ -57,6 +57,9 @@ public class SketchFinder {
 					showHiddenFiles = true;
 				} else if (args[i].equalsIgnoreCase("showUnderscoreFiles")) {
 					showUnderscoreFiles = true;
+				}
+				else if (args[i].equalsIgnoreCase("showLibraries")) {
+					showLibraries = true;
 				}
 			}
 		}
@@ -128,19 +131,23 @@ public class SketchFinder {
 		System.out.println("Projects:");
 		System.out.println(tree);
 
-		for (int i = 0; i < 70; i++) {
-			System.out.print("-");
-		}
-		System.out.println();
-
 //		if (libraries != null) {
 //			System.out.println(libraries);
 //		} else {
 //			System.out.println("No libraries found");
 //		}
-        getLibraries(folder);
-        System.out.print(libraries);
-
+        
+		if (showLibraries) {
+			for (int i = 0; i < 70; i++) {
+				System.out.print("-");
+			}
+			System.out.println();
+			
+			System.out.println("Libraries:");
+			getLibraries(folder);
+	        System.out.print(libraries);
+		}
+		
 	}
 
 	/**
